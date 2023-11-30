@@ -1,0 +1,48 @@
+from django.db import models
+
+# Create your models here.
+
+class Employees(models.Model):
+
+    name=models.CharField(max_length=200)
+    department=models.CharField(max_length=200)
+    salary=models.PositiveSmallIntegerField()
+    email=models.EmailField(unique=True)
+    age=models.PositiveIntegerField()
+    contact=models.CharField(max_length=200,null=True)
+
+from crm.models import Employees
+
+
+>>>> `orm query for creating a new object
+
+Employees.objects.create(name="fadhil",department="hr",salary=30000,email="fadhil@gmail.com",age=26,contact="test") 
+
+
+>>>>  orm query for fetching all rcords
+
+qs=Employees.objects.all()
+
+
+>>>> orm query for fetching a specific employee details
+
+qs=Employees.objects.get(id=1)
+
+>>>> orm query for filtering employee records
+
+qs=Employees.objects.filter(department="hr")
+qs=Employees.objects.filter(salary__gte=25000)
+qs=Employees.objects.filter(salary__lte=30000)
+__gte >=
+__lte <=
+__gt >
+__lt <
+
+
+>>>> orm query for update
+
+qs=Employees.objects.filter(id=6).update(contact="new contact",age=35)
+
+>>>> orm query for delete an item
+
+qs=Employees.objects.filter(id=4).delete()   

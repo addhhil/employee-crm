@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+
+{%block body_block%}
+
+<div class="container d-flex justify-content-center mt-5">
+    <div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                EMPOLYEE DETAILS
+            </div>
+            <div>
+
+            {%if data.profile_pic%}
+                <img src="{{data.profile_pic.url}}" alt="" width="100%">
+            {%endif%}
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">{{data.name}}</li>
+              <li class="list-group-item">{{data.department}}</li>
+              <li class="list-group-item">{{data.salary}}</li>
+              <li class="list-group-item">{{data.email}}</li>
+              <li class="list-group-item">{{data.age}}</li>
+              <li class="list-group-item">{{data.contact}}</li>
+            </ul>
+          </div>
+    </div>
+</div>
+
+
+{%endblock%}
